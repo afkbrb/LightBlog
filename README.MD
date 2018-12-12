@@ -51,7 +51,7 @@
 - 要求MySQL编码为**utf8mb4**（评论或文章中可能会出现utf8不包含的字符）
 - 新建数据库，导入lightblog.sql, 并修改resources/resource/db.properties
 - 如果想修改About页面显示的内容，请修改resources/resource/resource.properties
-- 本博客系统使用了 jquery.cookie.js，cookie默认过期时间为浏览器关闭，若您想重新设定cookie有效时长，可到 /static/js/article.js 总进行修改
+- 本博客系统使用了 jquery.cookie.js，cookie默认过期时间为浏览器关闭，若您想重新设定cookie有效时长，可到 /static/js/article.js 处进行修改
 - 后台登录用户名和密码均为admin
 
 ### 4. 联系方式
