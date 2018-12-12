@@ -16,7 +16,7 @@
 - 项目管理 Maven
 - 安全框架 Shiro
 
-###2. 效果图
+### 2. 效果图
 
 #### 2.1 首页
 ![](src/main/webapp/static/userImage/2018/12/12/0543d8c7-e474-416c-9a04-67e111413943.png)
