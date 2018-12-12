@@ -1,0 +1,64 @@
+
+/*全局设置 begin*/
+body {
+    color: #333;
+    padding-top: 54px;
+}
+
+a {
+    color: #999;
+}
+
+/*全局设置 end*/
+
+/*nav begin*/
+/*input（搜索框）的点击样式*/
+.form-control:focus {
+    border-color: #ea6f5a;
+    box-shadow: 0 0 10px rgba(234, 111, 90, 0.4);
+    border-radius: 5px;
+}
+
+/*导航选中颜色*/
+.navbar-light .navbar-nav .active > .nav-link {
+    color: #EA6F5A;
+}
+
+/*nav end*/
+
+
+
+
+/*返回顶部 begin*/
+.cd-top {
+    /*display: inline-block;*/
+    border: 1px solid #d2e2eb;
+    position: fixed;
+    bottom: 48px;
+    right: 36px;
+    overflow: hidden;
+    white-space: nowrap;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.cd-top.cd-is-visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+@media(min-width: 576px){
+    .cd-top{
+        display: inline-block;
+    }
+}
+
+@media (max-width: 576px) {
+    .cd-top{
+        display: none;
+    }
+}
+/*返回顶部 end*/

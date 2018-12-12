@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iustu.mapper.custom.BlogTypeMapperCustom">
+  <resultMap id="BaseResultMap" type="com.iustu.entity.BlogType">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="type_name" jdbcType="VARCHAR" property="typeName" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    id, type_name
+  </sql>
+
+  <select id="getBlogTypeListByPage"  resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from blog_type limit #{0}, #{1}
+  </select>
+
+</mapper>

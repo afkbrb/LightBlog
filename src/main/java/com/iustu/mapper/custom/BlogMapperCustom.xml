@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.iustu.mapper.custom.BlogMapperCustom">
+    <resultMap id="BaseResultMap" type="com.iustu.entity.Blog">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="title" jdbcType="VARCHAR" property="title"/>
+        <result column="summary" jdbcType="VARCHAR" property="summary"/>
+        <result column="create_date" jdbcType="TIMESTAMP" property="createDate"/>
+        <result column="update_date" jdbcType="TIMESTAMP" property="updateDate"/>
+        <result column="click_count" jdbcType="INTEGER" property="clickCount"/>
+        <result column="reply_count" jdbcType="INTEGER" property="replyCount"/>
+        <result column="like_count" jdbcType="INTEGER" property="likeCount"/>
+        <result column="type_id" jdbcType="INTEGER" property="typeId"/>
+        <result column="blog_image" jdbcType="VARCHAR" property="blogImage" />
+    </resultMap>
+    <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.iustu.entity.Blog">
+        <result column="content" jdbcType="LONGVARCHAR" property="content"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, title, summary, create_date, update_date, click_count, reply_count, like_count,
+    type_id, blog_image
+  </sql>
+    <sql id="Blob_Column_List">
+      content
+    </sql>
+    <select id="getBlogListByPage" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM `blog`
+        order by create_date desc
+        LIMIT #{0}, #{1}
+    </select>
+
+    <select id="getBlogListByPageWithBlobs" resultMap="ResultMapWithBLOBs">
+        SELECT
+        <include refid="Base_Column_List"/>,
+        <include refid="Blob_Column_List"/>
+        FROM `blog`
+        order by create_date desc
+        LIMIT #{0}, #{1}
+    </select>
+
+    <select id="getBlogListByTitleAndPage" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM `blog`
+        WHERE title like #{2}
+        order by create_date desc
+        LIMIT #{0}, #{1}
+    </select>
+
+    <select id="getBlogListByTypeIdTitleAndPage" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM `blog`
+        WHERE type_id = #{2}
+        and title like #{3}
+        order by create_date desc
+        LIMIT #{0}, #{1}
+    </select>
+
+    <select id="getBlogListByTypeIdAndPage" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM `blog`
+        WHERE type_id = #{2}
+        order by create_date desc
+        LIMIT #{0}, #{1}
+    </select>
+
+    <select id="getBlogListOrderByClickCount" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM `blog`
+        order by click_count desc
+        LIMIT 0, 10
+    </select>
+</mapper>

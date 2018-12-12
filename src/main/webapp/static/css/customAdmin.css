@@ -1,0 +1,111 @@
+/*wangeditor*/
+.wangEditor-container .wangEditor-txt blockquote {
+    display: block;
+    border-left: 8px solid #d0e5f2;
+    padding: 5px 10px;
+    margin: 10px 0;
+    line-height: 1.4;
+    font-size: 100%;
+    background-color: #f1f1f1;
+}
+.wangEditor-container .wangEditor-txt table {
+    border: none;
+    border-collapse: collapse;
+}
+.wangEditor-container .wangEditor-txt table td,
+.wangEditor-container .wangEditor-txt table th {
+    border: 1px solid #f1f1f1;
+    padding: 3px 5px;
+    min-width: 50px;
+    height: 20px;
+}
+.wangEditor-container .wangEditor-txt pre {
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    padding: 4px;
+    margin: 5px 0px;
+    font-size: 1.0em;
+    border-radius: 6px;
+}
+
+
+
+
+
+
+
+
+
+
+/*layui*/
+.icon-home{
+	background:url('../image/usericon/home.png') no-repeat center center;
+}
+
+.icon-item{
+	background:url('../image/usericon/item.png') no-repeat center center;
+}
+
+.icon-writeblog{
+	background:url('../image/usericon/writeblog.png') no-repeat center center;
+}
+
+.icon-bkgl{
+	background:url('../image/usericon/bkgl.png') no-repeat center center;
+}
+
+.icon-bklb{
+	background:url('../image/usericon/bklb.png') no-repeat center center;
+}
+
+.icon-plgl{
+	background:url('../image/usericon/plgl.png') no-repeat center center;
+}
+
+.icon-grxx{
+	background:url('../image/usericon/grxx.png') no-repeat center center;
+}
+
+.icon-grxxxg{
+	background:url('../image/usericon/grxxxg.png') no-repeat center center;
+}
+
+.icon-system{
+	background:url('../image/usericon/system.png') no-repeat center center;
+}
+
+.icon-modifyPassword{
+	background:url('../image/usericon/modifyPassword.png') no-repeat center center;
+}
+
+.icon-refresh{
+	background:url('../image/usericon/refresh.png') no-repeat center center;
+}
+
+/*.icon-download{*/
+	/*background:url('../image/usericon/download.png') no-repeat center center;*/
+/*}*/
+
+.icon-exit{
+	background:url('../image/usericon/exit.png') no-repeat center center;
+}
+
+.icon-submit{
+	background:url('../image/usericon/submit.png') no-repeat center center;
+}
+
+.icon-review{
+	background:url('../image/usericon/review.png') no-repeat center center;
+}
+
+.icon-link{
+	background:url('../image/usericon/link.png') no-repeat center center;
+}
+
+
+
+.l-btn{
+	text-align: left;
+}
+
+

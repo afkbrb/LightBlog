@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iustu.mapper.custom.CommentMapperCustom">
+    <resultMap id="BaseResultMap" type="com.iustu.entity.Comment">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="blog_id" jdbcType="INTEGER" property="blogId"/>
+        <result column="content" jdbcType="VARCHAR" property="content"/>
+        <result column="comment_date" jdbcType="TIMESTAMP" property="commentDate"/>
+        <result column="state" jdbcType="INTEGER" property="state"/>
+        <result column="visitor_name" jdbcType="VARCHAR" property="visitorName"/>
+        <result column="visitor_ip" jdbcType="VARCHAR" property="visitorIp"/>
+        <result column="visitor_avatar" jdbcType="VARCHAR" property="visitorAvatar"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, blog_id, content, comment_date, state, visitor_name, visitor_ip, visitor_avatar
+    </sql>
+
+    <select id="getCommentListByPage" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from comment
+        order by comment_date desc
+        limit #{0}, #{1}
+    </select>
+
+    <select id="getUnreviewedCommentListByPage" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from comment
+        where state = 0
+        order by comment_date desc
+        limit #{0}, #{1}
+    </select>
+
+    <select id="getCommentListByPageAndBlogId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from comment
+        where state = 1 and blog_id = #{2}
+        order by comment_date desc
+        limit #{0}, #{1}
+    </select>
+
+</mapper>
