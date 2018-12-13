@@ -5,7 +5,7 @@ function getTypeList() {
         var result = '';
         for (var i = 0; i < length; i++) {
             var type = data[i];
-            result += '<a href="javascript:void(0)" onclick="getArticlesByType(' + type.id + ')">' + type.typeName + ' ('+ type.blogCount +')' + '</a>';
+            result += '<a href="javascript:void(0)" onclick="getArticlesByType(' + type.id + ')">' + type.typeName + ' (' + type.blogCount + ')' + '</a>';
         }
 
         $(".ul-type").html(result);
@@ -76,6 +76,7 @@ function getArticleListOrderByClickCount() {
 //加载更多文章
 function addMore(page, rows, blogType, title) {
 
+    var mobileMatcher = window.matchMedia('(max-width:768px)');
     var isEnd = false;
 
     //设为同步请求(不同步的话isEnd会一直为false)
@@ -97,14 +98,14 @@ function addMore(page, rows, blogType, title) {
                 isEnd = true;
             }
 
-            for (var i = 0; i < length; i++) {
-                var article = articles[i];
-                if (article.blogImage == null || article.blogImage == "") {
+            if (mobileMatcher.matches) {
+                for (var i = 0; i < length; i++) {
+                    var article = articles[i];
                     result += '<li>\n' +
                         '                    <div class="content">\n' +
                         '                        <a class="title" target="_blank"\n' +
                         '                           href="' + '/article/' + article.id + '.html">' + article.title + '</a>\n' +
-                        '                        <p class="abstract">\n' + article.summary +
+                        '                        <p class="abstract">\n' + getSummary(article.summary, 48) +
                         '                        </p>\n' +
                         '                        <div class="meta">\n' +
                         '                            <span><i class="fa fa-comment-o"></i> ' + article.replyCount + '</span>\n' +
@@ -113,25 +114,44 @@ function addMore(page, rows, blogType, title) {
                         '                        </div>\n' +
                         '                    </div>\n' +
                         '                </li>';
-                } else {
-                    result += ' <li class="have-img">\n' +
-                        '                    <a class="wrap-img" href="' + '/article/' + article.id + '.html" target="_blank">\n' +
-                        '                        <img src="' + article.blogImage + '">\n' +
-                        '                    </a>\n' +
-                        '                    <div class="content">\n' +
-                        '                        <a class="title" target="_blank" href="' + '/article/' + article.id + '.html">' + article.title + '</a>\n' +
-                        '                        <p class="abstract">\n' +
-                        '                            ' + article.summary + '\n' +
-                        '                        </p>\n' +
-                        '                        <div class="meta">\n' +
-                        '                            <span><i class="fa fa-comment-o"></i> ' + article.replyCount + '</span>\n' +
-                        '                            <span><i class="fa fa-heart-o"></i> ' + article.likeCount + '</span>\n' +
-                        '                            <span><i class="fa fa-eye"></i> ' + article.clickCount + ' </span>\n' +
-                        '                        </div>\n' +
-                        '                    </div>\n' +
-                        '                </li>';
                 }
+            } else {
+                for (var i = 0; i < length; i++) {
+                    var article = articles[i];
+                    if (article.blogImage == null || article.blogImage == "") {
+                        result += '<li>\n' +
+                            '                    <div class="content">\n' +
+                            '                        <a class="title" target="_blank"\n' +
+                            '                           href="' + '/article/' + article.id + '.html">' + article.title + '</a>\n' +
+                            '                        <p class="abstract">\n' + article.summary +
+                            '                        </p>\n' +
+                            '                        <div class="meta">\n' +
+                            '                            <span><i class="fa fa-comment-o"></i> ' + article.replyCount + '</span>\n' +
+                            '                            <span><i class="fa fa-heart-o"></i> ' + article.likeCount + '</span>\n' +
+                            '                            <span><i class="fa fa-eye"></i> ' + article.clickCount + '</span>\n' +
+                            '                        </div>\n' +
+                            '                    </div>\n' +
+                            '                </li>';
+                    } else {
+                        result += ' <li class="have-img">\n' +
+                            '                    <a class="wrap-img" href="' + '/article/' + article.id + '.html" target="_blank">\n' +
+                            '                        <img src="' + article.blogImage + '">\n' +
+                            '                    </a>\n' +
+                            '                    <div class="content">\n' +
+                            '                        <a class="title" target="_blank" href="' + '/article/' + article.id + '.html">' + article.title + '</a>\n' +
+                            '                        <p class="abstract">\n' +
+                            '                            ' + article.summary + '\n' +
+                            '                        </p>\n' +
+                            '                        <div class="meta">\n' +
+                            '                            <span><i class="fa fa-comment-o"></i> ' + article.replyCount + '</span>\n' +
+                            '                            <span><i class="fa fa-heart-o"></i> ' + article.likeCount + '</span>\n' +
+                            '                            <span><i class="fa fa-eye"></i> ' + article.clickCount + ' </span>\n' +
+                            '                        </div>\n' +
+                            '                    </div>\n' +
+                            '                </li>';
+                    }
 
+                }
             }
 
             $('.blog-list').append(result);
@@ -142,4 +162,8 @@ function addMore(page, rows, blogType, title) {
     $.ajaxSettings.async = true;
 
     return isEnd;
+}
+
+function getSummary(str, length){
+    return str.substring(0, length) + "...";
 }
