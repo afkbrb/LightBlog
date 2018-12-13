@@ -50,7 +50,7 @@
 
 #### 3.2 配置说明
 
-- **注意**：项目运行要求 Application Context 为 **/** ，不要使用默认的项目名作为根路径（可以直接修改Tomcat配置文件，或把项目置于webapps下的ROOT文件夹中，IDEA 用户可以在 Edit Configuration 下 Deployment 中设置 Application Context）
+- **注意**：项目运行要求 Application Context 为 **/** ，不要使用默认的项目名作为根路径（IDEA 用户可以在 Edit Configuration 下 Deployment 中设置 Application Context 为 /， Eclipse 用户可以在项目 Properties 下 Web Project Settings 中设置 Context Root 为 /）
 - 要求MySQL编码为**utf8mb4**（评论或文章中可能会出现utf8不包含的字符）
 - 新建数据库，导入lightblog.sql, 并修改resources/resource/db.properties
 - 如果想修改About页面显示的内容，请修改resources/resource/resource.properties
