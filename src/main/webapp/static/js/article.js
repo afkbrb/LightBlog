@@ -103,7 +103,7 @@ function formatDatebox(value) {
 
     }
 
-    return dt.format("yyyy-MM-dd hh-mm"); //扩展的Date的format方法(上述插件实现)
+    return dt.format("yyyy-MM-dd hh:mm"); //扩展的Date的format方法(上述插件实现)
 }
 
 function html2Escape(sHtml) {
