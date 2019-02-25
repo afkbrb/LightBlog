@@ -22,7 +22,7 @@
 ### 2. 效果图
 
 #### 2.1 首页
-![](src/main/webapp/static/userImage/2018/12/12/0543d8c7-e474-416c-9a04-67e111413943.png)
+![](/src/main/webapp/static/userImage/2018/12/12/1.png)
 
 ![](src/main/webapp/static/userImage/2018/12/12/2ec76380-ab24-49c7-a06e-40126fdf4b9b.png)
 
