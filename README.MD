@@ -22,24 +22,23 @@
 ### 2. 效果图
 
 #### 2.1 首页
-![](/src/main/webapp/static/userImage/2018/12/12/1.png)
+![](/screenshots/1.png)
 
-![](src/main/webapp/static/userImage/2018/12/12/2ec76380-ab24-49c7-a06e-40126fdf4b9b.png)
-
+![](/screenshots/2.png)
 #### 2.2 博客阅读页
-![](src/main/webapp/static/userImage/2018/12/12/020952e2-8d65-4d86-9ff1-05413bc05b25.png)
+![](/screenshots/3.png)
 
-![](src/main/webapp/static/userImage/2018/12/12/0e233407-175d-4609-a03f-95fa6efbe624.png)
+![](/screenshots/4.png)
 
-![](src/main/webapp/static/userImage/2018/12/12/fb460853-2e4f-48ed-a90a-bbcbe2d38917.png)
+![](/screenshots/5.png)
 
-![](src/main/webapp/static/userImage/2018/12/12/46fb1e9f-c8d5-47a3-a608-f4b4607e9146.png)
+![](/screenshots/6.png)
 #### 2.3 后台
-![](src/main/webapp/static/userImage/2018/12/12/96cdc8c4-f5f3-4d57-8ab5-6922da05d60a.png)
+![](/screenshots/7.png)
 
-![](src/main/webapp/static/userImage/2018/12/12/918dcfe5-4343-4a6a-ad44-6b0ad6093c38.png)
+![](/screenshots/8.png)
 
-![](src/main/webapp/static/userImage/2018/12/12/d3b1328d-2e30-43b1-85d8-d615fbd03740.png)
+![](/screenshots/9.png)
 ### 3. 构建和运行
 
 #### 3.1 环境要求
