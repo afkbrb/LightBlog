@@ -72,7 +72,7 @@
                 <div id="doc-content" style="word-wrap: break-word; word-break: normal;padding: 0">
                     <textarea id="doc-content-markdown-doc" style="display:none;">${blog.content}</textarea>
                 </div>
-                
+
                 <div class="copyright"><i class="fa fa-copyright"></i>欢迎转载，请注明出处</div>
                 <div style="text-align: center; margin-top: 40px">
                     <button id="like-btn" class="btn btn-like" onclick="addLike(articleId)">喜欢 ${blog.likeCount}</button>
@@ -83,8 +83,7 @@
                 <div>
                     <form class="new-comment">
                         <a class="avatar">
-                            <img id="myAvatar" src="/static/image/addProfile.png"
-                                 onclick="openModal()">
+                            <img id="myAvatar" onclick="openModal()">
                         </a>
                         <textarea id="comment-text" placeholder="写下你的评论..."></textarea>
                         <div class="write-function-block">
@@ -172,7 +171,11 @@
     //Article页面对应的文章id
     var articleId = ${blog.id};
 
+    // 评论间隔时间（防止刷评论）
     var commentSendInterval = 10;
+
+    // 游客默认头像
+    var defaultAvatar = "/static/image/addProfile.png";
 
     $(function () {
 
@@ -197,7 +200,12 @@
         addClick(articleId);
 
         //读取cookie
-        $("#myAvatar").attr("src", $.cookie("ck_avatar"));
+        if($.cookie("ck_avatar")) {
+            $("#myAvatar").attr("src", $.cookie("ck_avatar"));
+        }else {
+            console.log("undefined avatar");
+            $("#myAvatar").attr("src", defaultAvatar);
+        }
         $("#username").val($.cookie("ck_visitorName"));
 
         //初始化评论列表

@@ -3,6 +3,7 @@ package com.iustu.controller.home;
 import com.iustu.common.pojo.MyResult;
 import com.iustu.common.util.AvatarGeneratorUtil;
 import com.iustu.common.util.IpAddressUtil;
+import com.iustu.common.util.MailUtil;
 import com.iustu.common.util.UploadUtil;
 import com.iustu.entity.Blog;
 import com.iustu.entity.Comment;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 
@@ -50,6 +52,7 @@ public class CommentController {
                 imagePath = UploadUtil.uploadFile(UPLOAD_PATH, imageFile, request);
                 comment.setVisitorAvatar(imagePath);
                 commentService.insertComment(comment);
+                sendMail(comment);
                 return imagePath;
             } catch (Exception e) {
                 e.printStackTrace();
@@ -60,12 +63,22 @@ public class CommentController {
             imagePath = AvatarGeneratorUtil.generatorAvatar(UPLOAD_PATH, request);
             comment.setVisitorAvatar(imagePath);
             commentService.insertComment(comment);
+            sendMail(comment);
             return imagePath;
             // 已经有头像了则直接插入即可
         } else {
             commentService.insertComment(comment);
+            sendMail(comment);
             return comment.getVisitorAvatar();
         }
+    }
+
+    private void sendMail(Comment comment) {
+        Blog blog = blogService.getBlogById(comment.getBlogId());
+        String content = comment.getVisitorName() + " 在《" + blog.getTitle() + "》下评论：\n" +
+                comment.getContent() +
+                "\n请速去审核！！！";
+        MailUtil.sendMailAsynchronously("LightBlog评论审核", content);
     }
 
     @RequestMapping("/get")

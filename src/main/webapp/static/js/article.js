@@ -20,6 +20,7 @@ function closeModal() {
 
 //点击确定
 function addProfile() {
+    // 如果添加了头像
     if ($("#imageFile").prop('files')[0]) {
         var objUrl = getUrl($("#imageFile").prop('files')[0]);
         if (objUrl) {
@@ -156,7 +157,7 @@ function submitComment(commentSendInterval, articleId) {
         //防止js注入
         $("#content").val(html2Escape($("#comment-text").val()));
         $("#blogId").val(articleId);
-        $("#visitorAvatar").val($("#myAvatar").attr("src"));
+        $("#visitorAvatar").val($.cookie("ck_avatar"));
         $("#username").val(html2Escape($("#username").val()));
         //提交数据
         $("#comment-form").ajaxSubmit({
