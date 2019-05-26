@@ -108,26 +108,26 @@
 
             <div class="blogerinfo my-4">
                 <div class="blogerinfo-figure">
-                    <img src="/static/userImage/2018/12/09/a77f6117-625b-4bfe-ab4b-681e1d785e77.jpg"
-                         alt="DrownBugs">
+                    <img src="/static/userImage/2019/05/26/88d726e6-4f61-4061-b5b3-a86f138a7e1e.jpg"
+                         alt="2w6f8c">
                 </div>
-                <p class="blogerinfo-nickname">DrownBugs</p>
-                <p class="blogerinfo-introduce">Fake IT, till you make IT</p>
+                <p class="blogerinfo-nickname">2w6f8c</p>
+                <p class="blogerinfo-introduce">fake it, till you make it.</p>
                 <!--<hr>-->
                 <div class="blogerinfo-contact">
-                    <a target="_blank" id="QQjl" title="QQ交流"
+                    <a target="_blank" id="qq" title="QQ交流"
                        href="http://wpa.qq.com/msgrd?v=3&uin=2428391347&site=qq&menu=yes"><i
                             class="fa fa-qq fa-2x"></i></a>
-                    <a target="_blank" id="gwxx" title="给我写信" href="mailto:2428391347@qq.com"><i
-                            class="fa fa-envelope fa-2x"></i></a>
-                    <a target="_blank" id="htgl" title="后台管理" href="/admin/main"><i
+                    <a target="_blank" id="github" title="给我写信" href="https://github.com/2w6f8c"><i
+                            class="fa fa-github-square fa-2x"></i></a>
+                    <a target="_blank" id="manage" title="后台管理" href="/admin/main"><i
                             class="fa fa-database fa-2x"></i></a>
                 </div>
             </div>
 
             <div class="sidebar">
                 <div class="sidebar-title"><i class="fa fa-file-text-o"></i>&nbsp;博主介绍</div>
-                <p>DrownBugs，一名普通大学生，热爱编程，主要写java。-- DrownBugs</p>
+                <p>普通大学生，技术爱好者</p>
             </div>
 
             <div class="sidebar tag">
@@ -151,7 +151,7 @@
 <!-- Footer -->
 <footer class="py-3" style="background-color: white; border-top: 1px solid #f0f0f0">
     <div class="container">
-        <p class="m-0 text-center" style="color: #c8c8c8;">Copyright &copy; Light Blog 2018</p>
+        <p class="m-0 text-center" style="color: #c8c8c8;">Copyright &copy; Light Blog 2019</p>
     </div>
 </footer>
 
