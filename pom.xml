@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.iustu</groupId>
-    <artifactId>Blog</artifactId>
+    <artifactId>LightBlog</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
