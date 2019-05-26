@@ -1,6 +1,7 @@
 package com.iustu.controller.home;
 
 import com.iustu.common.pojo.MyResult;
+import com.iustu.common.util.AvatarGeneratorUtil;
 import com.iustu.common.util.IpAddressUtil;
 import com.iustu.common.util.UploadUtil;
 import com.iustu.entity.Blog;
@@ -43,6 +44,7 @@ public class CommentController {
         //未审核状态
         comment.setState(0);
         comment.setVisitorIp(IpAddressUtil.getIpAdrress(request));
+        // 读者上传了头像
         if (imageFile != null) {
             try {
                 imagePath = UploadUtil.uploadFile(UPLOAD_PATH, imageFile, request);
@@ -53,11 +55,16 @@ public class CommentController {
                 e.printStackTrace();
                 return "error";
             }
-        } else if (!(comment.getVisitorAvatar() == null || comment.getVisitorAvatar().equals(""))) {
+            // 如果没有头像则随机生成8-bit像素头像
+        } else if (comment.getVisitorAvatar() == null || comment.getVisitorAvatar().equals("")) {
+            imagePath = AvatarGeneratorUtil.generatorAvatar(UPLOAD_PATH, request);
+            comment.setVisitorAvatar(imagePath);
+            commentService.insertComment(comment);
+            return imagePath;
+            // 已经有头像了则直接插入即可
+        } else {
             commentService.insertComment(comment);
             return comment.getVisitorAvatar();
-        } else {
-            return "error";
         }
     }
 

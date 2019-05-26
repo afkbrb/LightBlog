@@ -1,47 +1,42 @@
 package com.iustu.common.util;
 
+import com.talanlabs.avatargenerator.Avatar;
+import com.talanlabs.avatargenerator.eightbit.EightBitAvatar;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Random;
 import java.util.UUID;
 
-public class UploadUtil {
+
+public class AvatarGeneratorUtil {
+
+    private static final String SUFFIX = ".png";
+    private static Random random = new Random();
+    private static Avatar avatar = EightBitAvatar.newMaleAvatarBuilder().build();
 
     /**
-     *
-     * @param uploadPath 上传路径
-     * @param file  上传的文件
-     * @param request HttpServletRequest 用于获取虚拟路径
+     * 随机生成头像
+     * @param uploadPath
+     * @param request
      * @return 生成的头像所在url路径
-     * @throws Exception
      */
-    public static String uploadFile(String uploadPath, MultipartFile file, HttpServletRequest request) throws Exception{
-        if (file == null) {
-            throw new Exception("文件上传出错！！！");
-        }
-
-        String realName = UUID.randomUUID().toString() +"." + file.getOriginalFilename().split("\\.")[1];
+    public static String generatorAvatar(String uploadPath, HttpServletRequest request) {
+        String realName = UUID.randomUUID().toString() + SUFFIX;
         String realPath = request.getServletContext().getRealPath(uploadPath);
         Date date = new Date();
         String datePath = new SimpleDateFormat("yyyy/MM/dd").format(date);
         String path = realPath + "/" + datePath;
-
         File f = new File(path);
         if (!f.exists()) {
             f.mkdirs();
         }
-
-        try {
-            file.transferTo(new File(path + "/" + realName));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        // 随机生成png图像到文件中
+        avatar.createAsPngToFile(random.nextLong(), new File(path + "/" + realName));
 
         return request.getContextPath() + uploadPath + "/" + datePath + "/" + realName;
     }
-
 }
