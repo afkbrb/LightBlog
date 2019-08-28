@@ -1,5 +1,9 @@
 ## Light Blog -- 基于ssm的个人博客
 
+### 注意
+
+项目已经重构，详见[light-blog](https://github.com/afkbrb/light-blog-back)
+
 ### 1. 项目简介
 
 #### 1.1 项目说明
