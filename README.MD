@@ -58,9 +58,3 @@
 - 本博客系统使用了 jquery.cookie.js，cookie默认过期时间为浏览器关闭，若您想重新设定cookie有效时长，可到 /static/js/article.js 处进行修改
 - 后台登录用户名和密码均为admin
 - 要想使用有人评论时发邮件通知管理员的功能，请修改src/main/resources/resource/mail.properties
-
-### 4. 联系方式
-
-QQ：2428391347
-
-Email： 2428391347@qq.com
